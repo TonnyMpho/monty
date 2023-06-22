@@ -2,8 +2,8 @@
 #include "monty.h"
 
 /**
- * free_stack - functionthat frees the stack
- * @stack - pointer to the stck
+ * free_stack - function that frees the stack
+ * @stack: - pointer to the stck
  * Return: Void
  */
 void free_stack(stack_t **stack)

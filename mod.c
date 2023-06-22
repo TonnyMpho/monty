@@ -2,9 +2,9 @@
 #include "monty.h"
 
 /**
- * mul - functiom that multiplies thr top two elements
- * @stck: pointer to the satck
- * @line: the current line
+ * mod - functiom that multiplies thr top two elements
+ * @stack: pointer to the satck
+ * @line_number: the current line
  * Return: Nothing (void)
  */
 void mod(stack_t **stack, unsigned int line_number)

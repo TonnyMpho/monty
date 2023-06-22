@@ -3,9 +3,9 @@
 #include "monty.h"
 
 /**
- * push - functionthat pushes an element on top of the stack
- * @stack ponter to the head of the stack
- * @ine_number: line number
+ * push - function that pushes an element on top of the stack
+ * @stack: ponter to the head of the stack
+ * @line_number: line number
  * Return: Void (nothing)
  */
 void push(stack_t **stack, unsigned int line_number)

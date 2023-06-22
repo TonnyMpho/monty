@@ -2,7 +2,7 @@
 #include "monty.h"
 
 /**
- * rotr - function tha rotates the stack
+ * rotr - function that rotates the stack
  * @stack: pointer to the stack
  * @line_number: line number
  * Reruen: void
@@ -27,7 +27,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * rot1 - function that rotates the stack to the top
+ * rotl - function that rotates the stack to the top
  * @stack: pointer to stack
  * @line_number: current line
  * Return: Nothing (void)

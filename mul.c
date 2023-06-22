@@ -3,8 +3,8 @@
 
 /**
  * mul - functiom that multiplies thr top two elements
- * @stck: pointer to the satck
- * @line: the current line
+ * @stack: pointer to the satck
+ * @line_number: the current line
  * Return: Nothing (void)
  */
 void mul(stack_t **stack, unsigned int line_number)
