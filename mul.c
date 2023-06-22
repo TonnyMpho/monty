@@ -17,6 +17,6 @@ void mul(stack_t **stack, unsigned int line_number)
 		exit(EXIT_SUCCESS);
 	}
 
-	node->next->n *= node->n;
+	node->next->n *= (*stack)->n;
 	pop(stack, line_number);
 }
