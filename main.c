@@ -31,11 +31,10 @@ int main(int argc, char *argv[])
 
 	while (getline(&buffer, &len, file) != -1)
 	{
-		opcode = strtok(buffer, " \t\n");
-		if (opcode == NULL || opcode[0] == '#')
-			execute_opcode(opcode, &stack, line_number);
-
 		line_number++;
+		opcode = strtok(buffer, " \t\n");
+		if (opcode != NULL && opcode[0] != '#')
+			execute_opcode(opcode, &stack, line_number);
 	}
 
 	free_stack(&stack);

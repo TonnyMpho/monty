@@ -21,7 +21,7 @@ void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 
 	unsigned int i = 0;
 
-	while (opcode_instr[i].opcode)
+	while (opcode_instr[i].opcode != NULL)
 	{
 		if (strcmp(opcode, opcode_instr[i].opcode) == 0)
 		{
