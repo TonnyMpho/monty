@@ -13,7 +13,7 @@ void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 		{"push", push}, {"pall", pall},
 		{"pint", pint}, {"pop", pop},
 		{"swap", swap}, {"add", add},
-		{"sub", sub}, {"div", div},
+		{"sub", sub}, {"div", divide},
 		{"mul", mul}, {"mod", mod},
 		{"pchar", pchar}, {"pstr", pstr},
 		{"rotl", rotl}, {"rotr", rotr},
@@ -26,7 +26,7 @@ void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 		if (strcmp(opcode, opcode_instr[i].opcode) == 0)
 		{
 			opcode_instr[i].f(stack, line_number);
-			return (0);
+			return;
 		}
 		i++;
 	}

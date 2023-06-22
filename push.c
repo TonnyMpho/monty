@@ -1,4 +1,5 @@
-#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
 #include "monty.h"
 
 /**
@@ -10,7 +11,7 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	char *arg = strtok(NULL, " \t\n");
-	int num;
+	int num = 0;
 	stack_t *new_node, *node = *stack;
 
 	new_node = malloc(sizeof(stack_t));
@@ -34,7 +35,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 	num = atoi(arg);
 
-	new_node->n = value;
+	new_node->n = num;
 	new_node->prev = NULL;
 	new_node->next = node;
 

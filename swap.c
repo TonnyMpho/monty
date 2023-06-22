@@ -7,12 +7,12 @@
  * @line_number: line number
  * Return: Void (Nothing)
  */
-void swap(stack_t **stack, unsigned int line number)
+void swap(stack_t **stack, unsigned int line_number)
 {
 	int temp_n;
 	stack_t *node = *stack;
 
-	if (node == NULL || stack->next == NULL)
+	if (node == NULL || node->next == NULL)
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);

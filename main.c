@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include <stdio.h>
 #include "monty.h"
 
@@ -7,14 +8,13 @@
  * @argv: argument array
  * Return: 0 (Success) or 1
  */
-int main(int argv, char *argv[])
+int main(int argc, char *argv[])
 {
 	stack_t *stack = NULL;
-	char *buffer, opcode;
+	char *buffer, *opcode;
 	FILE *file;
-	ssize_t read_line;
 	size_t len = 0;
-	unsigned int line_number = 1;
+	unsigned int line_number = 0;
 
 	if (argc != 2)
 	{
@@ -29,30 +29,17 @@ int main(int argv, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	while ((read_line = getline(&buffer, &len, file)) != -1)
+	while (getline(&buffer, &len, file) != -1)
 	{
-		opcode = strtok(readline, " \t\n");
+		opcode = strtok(buffer, " \t\n");
 		if (opcode == NULL || opcode[0] == '#')
-		{
-			line_number++;
-			continue;
-		}
+			execute_opcode(opcode, &stack, line_number);
 
-		instru_opcode = execute_opcode(opcode);
-		if (instru_opcode == NULL)
-		{
-			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
-			exit(EXIT_FAILURE);
-		}
-
-		instru_opcode->f(&stck, line_number);
 		line_number++;
 	}
 
-	free_stck(&stack);
+	free_stack(&stack);
 	fclose(file);
-
-	if (read_line)
-		free(line);
+	free(buffer);
 	exit(EXIT_SUCCESS);
 }
