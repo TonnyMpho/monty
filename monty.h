@@ -49,6 +49,7 @@ void rotr(stack_t **stack, unsigned int line_number);
 void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void divide(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
 
 #endif
