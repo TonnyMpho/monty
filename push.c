@@ -2,6 +2,7 @@
 #include <ctype.h>
 #include "monty.h"
 
+int is_num(const char *check);
 /**
  * push - function that pushes an element on top of the stack
  * @stack: ponter to the head of the stack
@@ -21,13 +22,7 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if (arg == NULL)
-	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-
-	if (!isdigit(arg[0]) || arg[0] != '-' || arg[0] != '+')
+	if (arg == NULL || !is_num(arg))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
@@ -43,4 +38,28 @@ void push(stack_t **stack, unsigned int line_number)
 		node->prev = new_node;
 
 	*stack = new_node;
+}
+
+/**
+ * is_num - function that check if the argument is a number
+ * @check: number to check
+ * Return: 0 or 1 not a number
+ */
+int is_num(const char *check)
+{
+	int i = 0;
+
+	if (check == NULL || *check == '\0')
+		return (0);
+
+	if (check[0] == '-' || check[0] == '+')
+		i++;
+
+	for (; check[i] != '\0'; i++)
+	{
+		if (!isdigit(check[i]))
+			return (0);
+	}
+
+	return (1);
 }
